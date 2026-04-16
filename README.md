@@ -88,42 +88,11 @@ The database follows **3rd Normal Form (3NF)** ensuring:
 
 ---
 
-## 🧪 Sample Query
-
-```sql
-SELECT b.title, SUM(oi.quantity * oi.price) AS revenue
-FROM Order_Items oi
-JOIN Books b ON oi.book_id = b.book_id
-GROUP BY b.title
-ORDER BY revenue DESC
-LIMIT 5;
-
----
-
 ## 🛠️ Tech Stack
 
 - **Database:** MySQL  
 - **Language:** SQL  
 - **Tools:** MySQL Workbench, dbdiagram.io  
-
----
-
-## 🚀 Getting Started
-
-### 1️⃣ Clone Repository
-```bash
-git clone https://github.com/charan110604/Library-management-Database.git
-cd Library-management-Database
-
-2️⃣ Setup Database
-CREATE DATABASE bookstore_db;
-USE bookstore_db;
-
-3️⃣ Import SQL File
-
-Run the following file in MySQL:
-
-OnlineBookstoreDB.sql
 
 ---
 
@@ -155,3 +124,6 @@ OnlineBookstoreDB.sql
 - Book recommendation system  
 - Analytics dashboard  
 - Role-based authentication & authorization  
+
+---
+
