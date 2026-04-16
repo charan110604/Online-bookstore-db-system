@@ -1,144 +1,120 @@
 📚 Online Bookstore Database System
 
-A fully designed and implemented relational database system for managing an online bookstore. This project demonstrates real-world database design principles including normalization, relationships, transactions, triggers, and automation.
+A fully designed relational database system for managing an online bookstore. This project demonstrates real-world database concepts like normalization, relationships, transactions, triggers, and automation.
 
 📌 Project Overview
 
-The Online Bookstore Database is built to efficiently manage:
+The system is designed to efficiently manage:
 
 📖 Books & Inventory
 👤 Users (Customers)
 🧑‍💼 Authors & Publishers
 🛒 Orders & Order Items
 💳 Payments
-⭐ Reviews & Ratings
+⭐ Reviews
 
-It provides a strong foundation for scalable e-commerce systems with optimized data handling and reporting capabilities.
+📄 Supporting Documents:
 
-📄 Detailed documentation:
+SQL Queries →
+Project Design PPT →
+Abstract →
+🧱 Database Schema
 
-SQL Queries & Use Cases →
-Full Design Presentation →
-Project Abstract →
-🧱 Database Architecture
+The database follows 3rd Normal Form (3NF) ensuring:
 
-The system follows a normalized relational schema ensuring:
+✔ Data consistency
+✔ Reduced redundancy
+✔ Efficient querying
 
-Data consistency
-Minimal redundancy
-High performance
-🗂️ Key Entities
-Users – Customer details
-Books – Book catalog & stock
-Authors / Publishers / Genres – Metadata
-Orders – Customer purchases
-Order_Items – Many-to-many relationship
-Payments – Transaction tracking
-Reviews – User feedback
-🔗 Entity Relationships
-One user ➝ many orders
-One order ➝ many books (via Order_Items)
-One book ➝ one author, genre, publisher
-One order ➝ one payment
-Users ➝ reviews on books
+🗂️ Tables
+Users
+Books
+Authors
+Publishers
+Genres
+Orders
+Order_Items
+Payments
+Reviews
+🔗 Relationships
+One user → many orders
+One order → many books
+One book → one author, genre, publisher
+One order → one payment
+Users → reviews on books
 ⚙️ Features
-🛍️ Core Functionalities
-Browse books by title, author, genre
+🛍️ Core Features
+Browse and search books
 Place and manage orders
-Track order status (Pending → Shipped → Delivered)
-Manage inventory in real-time
-Store and retrieve user reviews
-📊 Advanced SQL Capabilities
-Complex joins & aggregations
-Sales analytics & reporting
-Revenue calculation per category
-Customer spending insights
-Best-selling books detection
-
-(Example queries available in )
-
-🔄 Automation & Database Logic
-
-This project includes advanced database features:
-
+Track order status
+Manage inventory
+Add reviews and ratings
+📊 Advanced SQL
+Complex joins
+Aggregations
+Revenue analysis
+Customer insights
+Best-selling books
+🔄 Automation & Logic
 ⚡ Triggers
-Auto-update stock after order placement
+Auto-update stock
 Prevent negative inventory
-Maintain accurate order totals
+Update order totals
 🔁 Stored Procedures
-Restrict orders if previous payments are pending (>30 days)
+Block orders for pending payments (>30 days)
 🧾 Views
-Customer order summary
-Category-wise revenue
+Customer summary
+Revenue per category
 ⏰ Events
-Daily low-stock alerts
-Monthly sales summary generation
-🧪 Sample Business Queries
-📌 Top 5 best-selling books
-📌 Customers with highest spending
-📌 Books with low stock
-📌 Monthly sales trends
-📌 Authors with highest sales
+Daily stock alerts
+Monthly sales reports
+🧪 Sample Queries
+-- Top 5 best-selling books
+SELECT b.title, SUM(oi.quantity * oi.price) AS revenue
+FROM Order_Items oi
+JOIN Books b ON oi.book_id = b.book_id
+GROUP BY b.title
+ORDER BY revenue DESC
+LIMIT 5;
+
+More queries → sql_queries_with_questions.pdf
+
 🛠️ Tech Stack
 Database: MySQL
 Language: SQL
-Tools: MySQL Workbench / DBDiagram
-Concepts Used:
-Normalization (3NF)
-Joins & Subqueries
-Indexing
-Constraints
-Transactions
-Triggers & Events
+Tools: MySQL Workbench, dbdiagram.io
 🚀 Getting Started
-1️⃣ Clone Repository
-git clone https://github.com/your-username/online-bookstore-db.git
-cd online-bookstore-db
+1️⃣ Clone Repo
+git clone https://github.com/charan110604/Library-management-Database.git
+cd Library-management-Database
 2️⃣ Setup Database
 CREATE DATABASE bookstore_db;
 USE bookstore_db;
-3️⃣ Run SQL Script
+3️⃣ Import SQL File
 
-Import:
+Run:
 
 OnlineBookstoreDB.sql
-4️⃣ Execute Queries
-
-Run queries from:
-
-sql_queries_with_questions.pdf
 📈 Workflow
-
-As shown in your documentation (page 4):
-
 User Registration/Login
-Browse/Search Books
+Browse Books
 Place Order
-Payment Processing
-Order Fulfillment
-Reporting & Analytics
-🎯 Key Highlights
+Payment
+Delivery
+Reports & Analytics
+🎯 Highlights
 
-✔ Fully normalized database design
-✔ Real-world e-commerce use case
-✔ Advanced SQL (Triggers, Views, Events)
-✔ Scalable and modular structure
-✔ Covers both OLTP + analytical queries
+✔ Real-world database design
+✔ Covers OLTP + analytics
+✔ Includes triggers, views, events
+✔ Interview-ready project
 
-📊 Benefits
-📦 Efficient inventory management
-💡 Data-driven insights
-⚡ Automated operations
-😊 Improved customer experience
-
-(Explained in detail on page 10 of your presentation )
-
-🔮 Future Enhancements
-Recommendation system
-AI-based analytics
-Integration with backend APIs (Spring Boot)
-Full-stack implementation (React + Java)
+🔮 Future Improvements
+🔗 Spring Boot backend integration
+⚛️ React frontend
+🤖 Recommendation system
+📊 Advanced analytics dashboard
 👨‍💻 Author
 
-Pathakota Charan
-📘 Full Stack Engineering (FSE)
+Charan Pathakota
+📘 Full Stack Engineering
